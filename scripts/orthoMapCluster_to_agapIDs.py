@@ -4,12 +4,18 @@
 from os.path import relpath as rp 
 
 #
-# OG-to-AGAP
+# OG-to-AGAP file
 #
-path_og_to_agap = rp("/home/nho/maps/AnOrthoMap/output/OGs_AGAP.txt")
+try:
+	path_og_to_agap = rp("/home/nho/maps/AnOrthoMap/output/OGs_AGAP.txt")
+	fi = open(path_og_to_agap,"r")
+except IOError:
+	path_og_to_agap = "../data/OGs_AGAP.txt"
+	fi = open(path_og_to_agap,"r")
 
-fi = open(path_og_to_agap,"r")
-
+#
+# OG-to-AGAP dict
+#
 og_to_agap = {}
 
 while True: 
